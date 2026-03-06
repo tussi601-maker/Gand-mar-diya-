@@ -12,8 +12,8 @@ html, body{
   margin:0;
   padding:0;
   font-family:'Poppins',sans-serif;
-  background: linear-gradient(135deg,#0d0d0d,#1a1a2e);
-  color:#fff;
+  background: linear-gradient(135deg,#0a0f1e,#1b1f3a);
+  color:#e0e0e0;
   overflow-x:hidden;
 }
 
@@ -24,35 +24,35 @@ header{
   left:0;
   right:0;
   height:70px;
-  background: rgba(10,15,35,0.9);
+  background: rgba(5,10,20,0.85);
   backdrop-filter: blur(12px);
   display:flex;
   align-items:center;
   justify-content:center;
-  border-bottom:2px solid rgba(56,189,248,0.5);
+  border-bottom:2px solid rgba(0,255,180,0.3);
   z-index:9999;
 }
 
 .logo-wrapper{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:10px;
 }
 
 .logo-wrapper svg{
   width:36px;
   height:36px;
   fill:none;
-  stroke:#38bdf8;
+  stroke:#00ffbf;
   stroke-width:3;
-  filter: drop-shadow(0 0 12px #38bdf8);
+  filter: drop-shadow(0 0 12px #00ffbf);
 }
 
 .logo-text{
   font-size:24px;
   font-weight:700;
-  color:#38bdf8;
-  text-shadow: 0 0 15px #38bdf8;
+  color:#00ffbf;
+  text-shadow:0 0 15px #00ffbf;
 }
 
 /* POPUP */
@@ -62,7 +62,7 @@ header{
   left:0;
   width:100%;
   height:100%;
-  background: rgba(0,0,0,0.75);
+  background:rgba(0,0,0,0.7);
   display:flex;
   align-items:center;
   justify-content:center;
@@ -71,13 +71,13 @@ header{
 
 .popup-box{
   width:320px;
-  background: rgba(20,25,45,0.95);
-  border:1px solid rgba(56,189,248,0.4);
+  background: rgba(20,25,35,0.95);
+  border:1px solid rgba(0,255,180,0.35);
   border-radius:18px;
-  backdrop-filter: blur(14px);
+  backdrop-filter:blur(14px);
   padding:2rem;
   text-align:center;
-  box-shadow:0 0 30px rgba(56,189,248,0.4);
+  box-shadow:0 0 25px rgba(0,255,180,0.4);
   position:relative;
 }
 
@@ -87,7 +87,7 @@ header{
   right:15px;
   background:none;
   border:none;
-  color:#38bdf8;
+  color:#00ffbf;
   font-size:22px;
   cursor:pointer;
 }
@@ -102,14 +102,14 @@ header{
 }
 
 .join-btn{
-  background: linear-gradient(135deg,#38bdf8,#2563eb);
+  background: linear-gradient(135deg,#00ffbf,#008cff);
   color:#fff;
-  box-shadow: 0 0 12px #38bdf8;
+  box-shadow:0 0 12px #00ffbf;
 }
 
 .join-btn:hover{
   transform: scale(1.05);
-  box-shadow: 0 0 20px #38bdf8;
+  box-shadow:0 0 22px #00ffbf;
 }
 
 .already-btn{
@@ -123,37 +123,9 @@ header{
   height:50vh;
   margin-top:70px;
   position:relative;
-  border-radius:6px;
+  border-radius:8px;
   overflow:hidden;
-  box-shadow:0 0 25px rgba(56,189,248,0.2) inset;
-  background:#000;
-}
-
-/* LIVE badge */
-.live-badge{
-  position:absolute;
-  top:10px;
-  left:12px;
-  background:red;
-  color:white;
-  padding:4px 10px;
-  font-size:12px;
-  font-weight:700;
-  border-radius:6px;
-  box-shadow:0 0 12px rgba(255,0,0,0.8);
-  animation: blink 1s infinite;
-  z-index:5;
-}
-
-@keyframes blink{
-  0%,50%,100%{opacity:1;}
-  25%,75%{opacity:0.3;}
-}
-
-/* VIDEO TAG */
-#player{
-  width:100%;
-  height:100%;
+  box-shadow:0 0 30px rgba(0,255,180,0.3) inset;
   background:#000;
 }
 
@@ -164,13 +136,13 @@ header{
   padding:20px;
   border-radius:16px;
   text-align:center;
-  background: rgba(15,23,42,0.95);
-  border:1px solid rgba(56,189,248,0.25);
-  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+  background: rgba(10,20,35,0.85);
+  border:1px solid rgba(0,255,180,0.2);
+  box-shadow:0 8px 20px rgba(0,255,180,0.2);
 }
 
 .section-title{
-  color:#38bdf8;
+  color:#00ffbf;
   font-size:18px;
   margin-bottom:10px;
 }
@@ -180,7 +152,7 @@ header{
   padding:14px 0;
   border-radius:12px;
   border:none;
-  background: linear-gradient(135deg,#38bdf8,#2563eb);
+  background: linear-gradient(135deg,#00ffbf,#008cff);
   color:#fff;
   font-weight:600;
   cursor:pointer;
@@ -189,10 +161,10 @@ header{
 
 .action-btn:hover{
   transform: scale(1.05);
-  box-shadow:0 0 20px #38bdf8;
+  box-shadow:0 0 18px #00ffbf;
 }
 
-/* SOCIAL FLOAT */
+/* FLOATING SOCIAL BUTTONS */
 .social-float{
   position:fixed;
   right:20px;
@@ -210,13 +182,13 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  box-shadow:0 0 18px rgba(56,189,248,0.7);
+  box-shadow:0 0 18px rgba(0,255,180,0.6);
   transition:0.3s;
 }
 
 .social-btn:hover{
   transform: scale(1.1);
-  box-shadow:0 0 28px rgba(56,189,248,1);
+  box-shadow:0 0 28px rgba(0,255,180,1);
 }
 
 .social-btn img{
@@ -259,9 +231,13 @@ header{
   </div>
 </header>
 
+<!-- VIDEO PLACEHOLDER -->
 <div class="video-container">
-  <div class="live-badge">LIVE</div>
-  <video id="player" controls autoplay></video>
+  <iframe
+    src="https://allrounder-live.pages.dev/star/star-1-hindi"
+    allowfullscreen
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
 </div>
 
 <div class="section-box">
@@ -287,30 +263,11 @@ header{
   </a>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/hls.js@1.3.5"></script>
 <script>
-// Replace below with your full .m3u8 link
-const video = document.getElementById('player');
-const streamURL = 'https://allrounder-live.pages.dev/star/star-1-hindi';
-
-if(Hls.isSupported()){
-  const hls = new Hls();
-  hls.loadSource(streamURL);
-  hls.attachMedia(video);
-  hls.on(Hls.Events.MANIFEST_PARSED,function(){
-    video.play();
-  });
-}else if(video.canPlayType('application/vnd.apple.mpegurl')){
-  video.src = streamURL;
-  video.addEventListener('loadedmetadata',function(){
-    video.play();
-  });
-}
-
 function closePopup(){
   document.getElementById('popup').style.display='none';
 }
 </script>
 
 </body>
-  </html>
+        </html>
