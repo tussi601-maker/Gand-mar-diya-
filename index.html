@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+<title>CRICKCAST LIVE</title>
+
+<link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+html, body {
+  margin:0;
+  padding:0;
+  background:#05070a;
+  font-family:'Poppins',sans-serif;
+  color:#e0e0e0;
+  overflow-x:hidden;
+}
+
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  height:70px;
+  background:rgba(5,10,15,0.85);
+  backdrop-filter:blur(10px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:1px solid rgba(0,255,170,0.25);
+  z-index:9999;
+}
+
+.logo-wrapper{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-wrapper svg{
+  width:34px;
+  height:34px;
+  fill:none;
+  stroke:#00ffbf;
+  stroke-width:3;
+  filter:drop-shadow(0 0 10px rgba(0,255,170,0.7));
+}
+
+.logo-text{
+  font-size:22px;
+  font-weight:700;
+  color:#00ffbf;
+  text-shadow:0 0 12px rgba(0,255,170,0.7);
+}
+
+.popup-overlay{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:10002;
+}
+
+.popup-box{
+  width:320px;
+  background:rgba(25,25,35,.8);
+  border:1px solid rgba(0,255,170,0.35);
+  border-radius:18px;
+  backdrop-filter:blur(12px);
+  padding:1.8rem;
+  text-align:center;
+  box-shadow:0 0 25px rgba(0,255,170,0.3);
+  position:relative;
+}
+
+.close-btn{
+  position:absolute;
+  top:10px;
+  right:15px;
+  background:none;
+  border:none;
+  color:#00ffbf;
+  font-size:22px;
+  cursor:pointer;
+}
+
+.popup-buttons{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.popup-btn{
+  border-radius:10px;
+  padding:12px 0;
+  font-weight:600;
+  cursor:pointer;
+  border:none;
+}
+
+.join-btn{
+  background:linear-gradient(135deg,#00ffbf,#008cff);
+  color:#fff;
+}
+
+.already-btn{
+  background:rgba(255,255,255,0.12);
+  color:#fff;
+}
+
+.video-container{
+  width:100%;
+  height:50vh;
+  background:#000;
+  margin-top:70px;
+}
+
+.video-container iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+.section-box{
+  width:92%;
+  margin:18px auto;
+  padding:18px;
+  border-radius:14px;
+  text-align:center;
+  background:rgba(0,255,170,0.07);
+  border:1px solid rgba(0,255,170,0.25);
+}
+
+.section-title{
+  color:#00ffbf;
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.action-btn{
+  width:100%;
+  padding:14px 0;
+  border-radius:10px;
+  border:none;
+  background:linear-gradient(135deg,#00ffbf,#0078ff);
+  color:#fff;
+  font-weight:600;
+  cursor:pointer;
+}
+
+/* FLOATING SOCIAL BUTTONS */
+.social-float{
+  position:fixed;
+  right:20px;
+  bottom:25px;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:99999;
+}
+
+.social-btn{
+  width:56px;
+  height:56px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 0 18px rgba(0,255,200,0.6);
+}
+
+.social-btn img{
+  width:28px;
+  height:28px;
+}
+
+.social-btn.telegram{
+  background:#0088cc;
+}
+
+.social-btn.instagram{
+  background:radial-gradient(circle at 30% 110%,
+    #fdf497 0%, #fdf497 5%, #fd5949 45%,
+    #d6249f 60%, #285AEB 90%);
+}
+
+</style>
+</head>
+<body>
+
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <button class="close-btn" onclick="closePopup()">×</button>
+    <div>Support Us 🤝</div>
+    <div>Join our Channel for live matches and instant updates..</div>
+    <div class="popup-buttons">
+      <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank" class="popup-btn join-btn">Join Now</a>
+      <button class="popup-btn already-btn" onclick="closePopup()">Already Joined</button>
+    </div>
+  </div>
+</div>
+
+<header>
+  <div class="logo-wrapper">
+    <svg viewBox="0 0 64 64">
+      <path d="M20 14 L24 20 L32 14 L40 20 L44 14 L44 24 H20 Z"/>
+      <path d="M32 8 L10 18 V32 C10 48 21 58 32 60 C43 58 54 48 54 32 V18 Z"/>
+    </svg>
+    <span class="logo-text">CRICKCAST</span>
+  </div>
+</header>
+
+<!-- UPDATED VIDEO SOURCE -->
+<div class="video-container">
+  <iframe
+    src="https://allrounder-live.pages.dev/star/star-1-hindi"
+    allowfullscreen
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
+</div>
+
+<div class="section-box">
+  <div class="section-title">🔔 Follow Us for Updates</div>
+  <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank">
+    <button class="action-btn">Join Telegram Channel</button>
+  </a>
+</div>
+
+<div class="section-box">
+  <div class="section-title">🔗 Share This Page</div>
+  <button class="action-btn" onclick="navigator.clipboard.writeText(window.location.href); alert('Link Copied');">
+    Copy & Share This Page
+  </button>
+</div>
+
+<div class="social-float">
+  <a href="https://t.me/+r_4JF-IieX0wNjU9" target="_blank" class="social-btn telegram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png">
+  </a>
+  <a href="https://www.instagram.com/crickcast.live" target="_blank" class="social-btn instagram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png">
+  </a>
+</div>
+
+<script>
+function closePopup(){
+  document.getElementById('popup').style.display='none';
+}
+</script>
+
+</body>
+</html>
