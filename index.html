@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 <title>CRICKCAST</title>
 
 <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.7.11/shaka-player.ui.min.js"></script>
-
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 html, body {
   margin:0;
   padding:0;
@@ -125,10 +124,10 @@ header{
   margin-top:70px;
 }
 
-video{
+.video-container iframe{
   width:100%;
   height:100%;
-  background:#000;
+  border:none;
 }
 
 .section-box{
@@ -158,6 +157,7 @@ video{
   cursor:pointer;
 }
 
+/* FLOATING SOCIAL BUTTONS */
 .social-float{
   position:fixed;
   right:20px;
@@ -192,9 +192,9 @@ video{
     #fdf497 0%, #fdf497 5%, #fd5949 45%,
     #d6249f 60%, #285AEB 90%);
 }
+
 </style>
 </head>
-
 <body>
 
 <div class="popup-overlay" id="popup">
@@ -219,8 +219,13 @@ video{
   </div>
 </header>
 
+<!-- UPDATED VIDEO SOURCE -->
 <div class="video-container">
-  <video id="video" controls autoplay playsinline></video>
+  <iframe
+    src="https://aps33.playlist.live-video.net/v1/playlist/CvwFR4VaUY9wfQIN-RMKvgxgR16HHbttnUI8R7JKFFDwN2HgZ-IBTwYcg3KmCasL1CRiJ1zsl5HrO5PCroolYGy7j9SJTaAyOarBnXHjXJ-bW8FCbYEIITIY3UxHCwFgXkb7rRPquBwt6L4ZzVbaXMsjyo6tsqyITCzCVrgfsyhfEQwoxG7l8YLmHA2z1upC2JTCBCzXE9I9hopfpB1vMPva3_J1XP0z_q9BgoRjNVqlRQYJK17A89T5orOYO5rqXmZ_Pu8iZ_l_mDnMGsx--EGx8btsWRigawPQOFYOzmJHTD0NRn5yOsd0MuKKeIfntFeZXC6-mv4IfxI0PfAWGr_9iWY6ZP2kvduWfaEWYoShdumBOFh32oet6fy-P2qREUeVmJL8lYUp90EA2n-4nwg5D04cvc3Kpro3VmPnymoiQ8Mceio6LhMJEIpLEY7DluwuY2_DsphkSWzovxQoAhapyGVeW0lO2TCd0qRYmw86XpDbi7j2rlKxLLIQ_T9xsQEkynZ5m-b7u288qFW-q2ei0BK7DnfwbhJx_bhC68smVmx9xtsbC_6jEIeaz7YGfx6_lMELcf8kpWFH7ub8v1qTkzgcVqfq8ixTzKUqtfnQ4sOET1jhnEh0uXAfBDjKtxEtWJE4puBv_rRHntLXLhFkDUimvu6BncGKbEnUMrHZa0Uu1hw57LxMyUzBZurfRrO7JwZC5h7rlJhZCFA1b49O5VzPcrTjVcn7QmdadpQUtZ3tb9ENvvTbkwRtgf7GNQQQwG1Q6vjhTW6kRn7Es_tgEBaQzdlkjkrWKoJXUQuyNM51haEY_ypEDL_QGEjRg88GIhboMpkDeo6GA-uaEqmDNFhLOmK7CPdX1eub_QqXT7LtcFfiG1DpZ3XMWai_pTMStEKrrZmrxJkslN3BjgbG5ysmHfyPfHVbdw-tnVHjGhW4s9PIgvVB7-ERUqJ4fJaApdaRgb9EwL3Cw-qBlAHWCMfUbyukjGqqTiyrCUwwo0iN-o0aSQe0usovnG8aDIUxxwckb9zFxpAZDyABKgl1cy13ZXN0LTIwzA4.m3u8"
+    allowfullscreen
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture">
+  </iframe>
 </div>
 
 <div class="section-box">
@@ -247,41 +252,10 @@ video{
 </div>
 
 <script>
-
 function closePopup(){
   document.getElementById('popup').style.display='none';
 }
-
-async function initPlayer(){
-
-const video = document.getElementById('video');
-const player = new shaka.Player(video);
-
-player.configure({
-drm:{
-clearKeys:{
-"609d795905904705028ef54653019af7":"2c791eb611e57a7d7f203022bc1b9ba3"
-}
-}
-});
-
-try{
-
-await player.load("https://otte.cache.aiv-cdn.net/bom-nitro/live/clients/dash/enc/duqbirmk0d/out/v1/40f53c7cbc95498db3afd081c377d776/cenc.mpd");
-
-console.log("Stream Loaded");
-
-}catch(e){
-
-console.error("Error loading stream",e);
-
-}
-
-}
-
-document.addEventListener("DOMContentLoaded",initPlayer);
-
 </script>
 
 </body>
-  </html>
+      </html>
